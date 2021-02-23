@@ -12,7 +12,6 @@
 
 #list tbody tr td {
   padding: 4px;
-  
 }
 
 #list tbody tr:nth-child(odd) td {
@@ -21,6 +20,52 @@
 }
 
 #list tbody tr:nth-child(even) td {
-
   border-right: rgb(171, 219, 252) 1px dotted;
+}
+
+td[data-field="winner"]::after {
+  content: "🏆";
+}
+
+td[data-field="winner"][data-winner:false]::after {
+  filter: grayscale(1);
+}
+
+/* POPUP DIALOGUE BOX */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialogue {
+  box-shadow: 1px 1px 10px #333333;
+  border-radius: 12px;
+  padding: 2em;
+  background-color: #cccccc;
+  position: relative;
+}
+
+button.closebutton {
+  position: absolute;
+  right: -1em;
+  top: -1em;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.dialogue h1 {
+  margin-top: 0;
+}
+
+.hide {
+  visibility: hidden;
 }

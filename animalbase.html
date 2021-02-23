@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>11C.03.05 animal base with stars</title>
-    <style>
-    body{
-      cursor: pointer;
-    }</style>
+    <title>11C.03.05 animal base with winners</title>
+    <link rel="stylesheet" href="animalbase.css">
     
   </head>
   <body>
@@ -26,6 +23,7 @@
     <table id="list">
       <thead>
         <tr id="sorting">
+          <th data-action="sort" data-sort-direction="asc" data-sort="winner">Winner</th>
           <th data-action="sort" data-sort-direction="asc" data-sort="star">Star</th>
           <th data-action="sort" data-sort-direction="asc" data-sort="name">Name</th>
           <th data-action="sort" data-sort-direction="asc" data-sort="type">Type</th>
@@ -40,6 +38,7 @@
 
     <template id="animal">
       <tr>
+        <td data-field="winner" data-winner="false"> </td>
         <td data-field="star">☆</td>
         <td data-field="name">NAME</td>
         <td data-field="type">TYPE</td>
@@ -47,6 +46,31 @@
         <td data-field="age">AGE</td>
       </tr>
     </template>
+
+    <!-- DIALOGUE -->
+    <div id="remove_other" class="modal hide">
+      <div class="dialogue">
+        <button class="closebutton">X</button>
+        <h1>Warning!</h1>
+        <p>There can only be one winner of each type <br>
+        Do you want to remove the other winner?</p>
+        <button id="removeother">Remove <span data-field="otherwinner">other</span></button>
+      </div>
+    </div>
+
+     <!-- DIALOGUE REMOVE -->
+     <div id="remove_aorb" class="modal hide">
+      <div class="dialogue">
+        <button class="closebutton">X</button>
+        <h1>Warning!</h1>
+        <p>There can not be more than two winners,<br>
+        Do you want to remove one of the existing winnerw?</p>
+        <div class="sidebyside">
+          <button id="removea">Remove <span data-field="winnera">A</span></button>
+          <button id="removeb">Remove <span data-field="winnerb">B</span></button>
+        </div>
+      </div>
+    </div>
 
     
     <script src="animalbase.js"></script>
